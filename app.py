@@ -3,7 +3,7 @@ import pandas as pd
 import openai
 
 # Configura a chave da API da OpenAI
-client = openai.OpenAI(api_key="sua-chave-api")
+client = openai.OpenAI(api_key="")
 
 app = Flask(__name__)
 
@@ -14,7 +14,7 @@ class VehicleDiagnosticSystem:
 
     def load_codes(self, csv_file):
         try:
-            df = pd.read_csv(csv_file)
+            df = pd.read_csv("OBD2.csv")
             if 'Code' in df.columns and 'Description' in df.columns:
                 codes = dict(zip(df['Code'], df['Description']))
             else:
@@ -98,7 +98,7 @@ class VehicleDiagnosticSystem:
         return suggestion
 
 # Inicializa o sistema de diagnóstico
-system = VehicleDiagnosticSystem('OBD.csv')
+system = VehicleDiagnosticSystem('OBD2.csv')
 
 @app.route("/", methods=["GET", "POST"])
 def index():

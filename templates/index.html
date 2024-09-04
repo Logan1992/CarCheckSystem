@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diagnóstico Veicular</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Diagnóstico Veicular</h1>
+        <form action="/" method="post">
+            <label for="customer_complaint">Reclamação do Cliente:</label>
+            <textarea id="customer_complaint" name="customer_complaint" required></textarea>
+
+            <label for="method_choice">Método de Diagnóstico:</label>
+            <select id="method_choice" name="method_choice" required>
+                <option value="1">Verificar a Reclamação</option>
+                <option value="2">Determinar os Sintomas Relacionados</option>
+                <option value="3">Analisar os Sintomas Relacionados</option>
+                <option value="4">Isolar a Área do Problema</option>
+                <option value="5">Reparar a Área do Problema</option>
+                <option value="6">Certificar que a Operação Está Adequada</option>
+            </select>
+
+            <label for="dtc_code">Código de Falha OBD2 (opcional):</label>
+            <input type="text" id="dtc_code" name="dtc_code">
+
+            <label for="related_symptoms">Sintomas Relacionados:</label>
+            <textarea id="related_symptoms" name="related_symptoms"></textarea>
+
+            <label for="problem_area">Área do Problema:</label>
+            <textarea id="problem_area" name="problem_area"></textarea>
+
+            <button type="submit">Diagnosticar</button>
+        </form>
+    </div>
+</body>
+</html>
